@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO-Directions</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: hsl(240, 4%, 10%);
+        }
+
+        div {
+            margin-top: calc(40vh - 80px);
+        }
+
+        .flip {
+            transform: scaleX(-1);
+        }
+
+        .rotate {
+            animation: rotateClockwise 3s infinite linear;
+        }
+
+        @keyframes rotateClockwise {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 50px;
+            width: 160px;
+            height: 160px;
+            filter: invert(65%) sepia(32%) saturate(5267%) hue-rotate(194deg) brightness(96%) contrast(93%);
+        }
+    </style>
+    
+    <div id="regularImage">
+        <img class="rotate" src="update-icon.svg">
+    </div>
+    
+
+    <div id="flippedImage" class="flip" style="display: none;"> 
+        <img class="rotate" src="update-icon.svg">
+    </div>
+
+    <script>
+        const regularImg = document.getElementById("regularImage")
+        const flippedImg = document.getElementById("flippedImage")
+
+        document.addEventListener("click", function() {
+            if (regularImg.style.display == "none") {
+                regularImg.style.display = "";
+                flippedImg.style.display = "none"
+            } else {
+                regularImg.style.display = "none";
+                flippedImg.style.display = ""
+            }
+        })
+    </script>
+</body>
+</html>
